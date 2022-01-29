@@ -11,12 +11,16 @@ import Astronaut from "./Astronaut.js";
 import ImageUtils from "./ImageUtils.js";
 import Stars from "./Stars.js";
 import EjectionTextGenerator from "./EjectionTextGenerator.js";
-let btn = document.getElementById("start-button");
-btn.addEventListener("click", () => {
-    main(btn.innerText);
-});
+let btns = document.getElementsByClassName("start-button");
+for (const button of btns) {
+    button.addEventListener("click", () => {
+        document.getElementById("game-canvas").style.display = "initial";
+        document.getElementById("menu").style.display = "none";
+        main(button.innerText, document.getElementById("player-name").value);
+    });
+}
 // "main function"
-function main(color) {
+function main(color, name) {
     return __awaiter(this, void 0, void 0, function* () {
         document.getElementById("ambience-audio").play();
         let canvas = document.getElementById("game-canvas");
@@ -25,7 +29,7 @@ function main(color) {
         let bigstars = new Stars(50, 2);
         let astronautSprite = yield ImageUtils.loadImageFromUrl(`images/characters/${color}.png`);
         let astronaut = new Astronaut(astronautSprite, 0, -360);
-        let text = new EjectionTextGenerator(color, astronaut);
+        let text = new EjectionTextGenerator((name ? name : color), astronaut);
         let gameloop = setInterval(() => {
             ctx.clearRect(0, 0, 800, 600);
             ctx.fillStyle = "black";

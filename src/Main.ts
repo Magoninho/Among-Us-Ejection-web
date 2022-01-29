@@ -3,13 +3,19 @@ import ImageUtils from "./ImageUtils.js";
 import Stars from "./Stars.js";
 import EjectionTextGenerator from "./EjectionTextGenerator.js";
 
-let btn = document.getElementById("start-button");
-btn.addEventListener("click", () => {
-	main(btn.innerText);
-});
+let btns = document.getElementsByClassName("start-button");
+
+for (const button of btns) {
+	button.addEventListener("click", () => {
+		document.getElementById("game-canvas").style.display = "initial";
+		document.getElementById("menu").style.display = "none";
+		main(button.innerText, (document.getElementById("player-name") as HTMLInputElement).value);
+	});	
+}
+
 
 // "main function"
-async function main(color: string) {
+async function main(color: string, name: string) {
 	(document.getElementById("ambience-audio") as HTMLAudioElement).play();
 	let canvas: HTMLCanvasElement = document.getElementById("game-canvas") as HTMLCanvasElement;
 	let ctx: CanvasRenderingContext2D = canvas.getContext("2d");
@@ -21,7 +27,7 @@ async function main(color: string) {
 	let astronautSprite = await ImageUtils.loadImageFromUrl(`images/characters/${color}.png`);
 
 	let astronaut = new Astronaut(astronautSprite, 0, -360);
-	let text = new EjectionTextGenerator(color, astronaut);
+	let text = new EjectionTextGenerator((name ? name : color), astronaut);
 
 	let gameloop = setInterval(() => {
 		ctx.clearRect(0, 0, 800, 600);

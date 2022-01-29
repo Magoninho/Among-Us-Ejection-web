@@ -10,7 +10,7 @@ export default class Astronaut {
 		this.image = image;
 		this.angle = startingAngle;
 		this.x = startingx;
-		this.impostor = true; // random boolean
+		this.impostor = Math.random() < 0.5; // random boolean
 	}
 
 	private move() {
