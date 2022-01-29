@@ -14,7 +14,7 @@ export default class EjectionTextGenerator {
 	}
 
 	public render(ctx: CanvasRenderingContext2D) {
-		ctx.font = '20px sans';
+		ctx.font = '20px verdana, Arial, sans';
 
 		if (this.counter >= 1 && !this.complete) {
 			this.final += this.text[this.charIndex];
