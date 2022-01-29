@@ -19,7 +19,9 @@ input[type=text] {
 button {
 	font-size: large;
 	background-color: black;
+	border: solid 2px;
 	color: white;
+	cursor: pointer;
 }
 
 canvas {

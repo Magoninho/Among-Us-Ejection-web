@@ -17,6 +17,7 @@ export default class EjectionTextGenerator {
                 document.getElementById("vote-audio").play();
             if (this.final.length == this.text.length) {
                 this.complete = true;
+                document.getElementById("vote-audio").load();
                 if (this.astronaut.isImpostor()) {
                     document.getElementById("impostor-audio").play();
                 }
