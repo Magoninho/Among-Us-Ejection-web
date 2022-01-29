@@ -1,14 +1,30 @@
 export default class Astronaut {
-    constructor(image, angle, starting_x) {
+    constructor(image, startingAngle, startingx) {
+        this.angle = 0;
+        this.y = 300;
+        this.speedx = 10;
         this.image = image;
-        this.angle = angle;
-        this.x = starting_x;
+        this.angle = startingAngle;
+        this.x = startingx;
     }
-    move(speed) {
-        this.x += speed;
+    move() {
+        this.x += this.speedx;
+        this.speedx -= 0.035;
+        if (this.speedx < 0) {
+            this.speedx = 0;
+        }
     }
     animation() {
-        this.angle += 5;
+        this.move();
+        this.angle -= 2 * Math.PI / 180;
+        // TODO: rotation
+    }
+    render(ctx) {
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(this.angle);
+        ctx.drawImage(this.image, -75, -75, 150, 150);
+        ctx.restore();
     }
 }
 //# sourceMappingURL=astronauts.js.map
