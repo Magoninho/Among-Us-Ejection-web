@@ -46,7 +46,7 @@ export default class Stars {
 		}
 	}
 
-	render(ctx: CanvasRenderingContext2D) {
+	public render(ctx: CanvasRenderingContext2D) {
 		// TODO: make a circle
 		for (let p = 0; p < this.positions.length; p++) {
 			const position = this.positions[p];

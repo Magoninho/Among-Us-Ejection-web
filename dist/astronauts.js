@@ -6,6 +6,7 @@ export default class Astronaut {
         this.image = image;
         this.angle = startingAngle;
         this.x = startingx;
+        this.impostor = true; // random boolean
     }
     move() {
         this.x += this.speedx;
@@ -25,6 +26,9 @@ export default class Astronaut {
         ctx.rotate(this.angle);
         ctx.drawImage(this.image, -75, -75, 150, 150);
         ctx.restore();
+    }
+    isImpostor() {
+        return this.impostor;
     }
 }
 //# sourceMappingURL=astronauts.js.map

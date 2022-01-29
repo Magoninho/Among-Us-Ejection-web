@@ -4,14 +4,16 @@ export default class Astronaut {
 	private x: number;
 	private y: number = 300;
 	private speedx: number = 10;
+	private impostor: boolean;
 
 	constructor(image: HTMLImageElement, startingAngle: number, startingx: number) {
 		this.image = image;
 		this.angle = startingAngle;
 		this.x = startingx;
+		this.impostor = true; // random boolean
 	}
 
-	move() {
+	private move() {
 		this.x += this.speedx;
 		this.speedx -= 0.035
 		if (this.speedx < 0) {
@@ -19,14 +21,14 @@ export default class Astronaut {
 		}
 	}
 
-	animation() {
+	public animation() {
 		this.move();
 		this.angle -= 2 * Math.PI / 180;
 
 		// TODO: rotation
 	}
 
-	render(ctx: CanvasRenderingContext2D) {
+	public render(ctx: CanvasRenderingContext2D) {
 			
 		ctx.save();
 		ctx.translate(this.x, this.y);
@@ -34,5 +36,9 @@ export default class Astronaut {
 		ctx.drawImage(this.image, -75, -75, 150, 150);
 		ctx.restore();
 
+	}
+
+	public isImpostor() {
+		return this.impostor;
 	}
 }
