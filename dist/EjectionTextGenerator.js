@@ -1,10 +1,11 @@
-export default class ImpostorText {
+export default class EjectionTextGenerator {
     constructor(name, astronaut) {
         this.final = "";
         this.complete = false;
         this.charIndex = 0;
         this.counter = -30.0;
-        this.text = astronaut.isImpostor() ? `${name} was The Impostor` : `${name} was not The Impostor`;
+        this.astronaut = astronaut;
+        this.text = this.astronaut.isImpostor() ? `${name} was The Impostor` : `${name} was not The Impostor`;
     }
     render(ctx) {
         ctx.font = '20px sans';
@@ -12,10 +13,13 @@ export default class ImpostorText {
             this.final += this.text[this.charIndex];
             this.counter = 0;
             this.charIndex++;
+            if (this.final.length == 1)
+                document.getElementById("vote-audio").play();
             if (this.final.length == this.text.length) {
                 this.complete = true;
-                if ()
-                    ;
+                if (this.astronaut.isImpostor()) {
+                    document.getElementById("impostor-audio").play();
+                }
             }
         }
         if (!this.complete)
@@ -28,4 +32,4 @@ export default class ImpostorText {
         return this.complete;
     }
 }
-//# sourceMappingURL=text.js.map
+//# sourceMappingURL=EjectionTextGenerator.js.map

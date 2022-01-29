@@ -1,4 +1,4 @@
-import Astronaut from "./astronauts.js";
+import Astronaut from './Astronaut.js';
 
 export default class EjectionTextGenerator {
 	private final: string = "";

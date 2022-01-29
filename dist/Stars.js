@@ -46,4 +46,4 @@ export default class Stars {
         }
     }
 }
-//# sourceMappingURL=stars.js.map
+//# sourceMappingURL=Stars.js.map

@@ -31,4 +31,4 @@ export default class Astronaut {
         return this.impostor;
     }
 }
-//# sourceMappingURL=astronauts.js.map
+//# sourceMappingURL=Astronaut.js.map

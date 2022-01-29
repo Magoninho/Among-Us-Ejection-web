@@ -7,10 +7,10 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-import Astronaut from "./astronauts.js";
+import Astronaut from "./Astronaut.js";
 import ImageUtils from "./ImageUtils.js";
-import Stars from "./stars.js";
-import EjectionTextGenerator from "./ejectionTextGenerator.js";
+import Stars from "./Stars.js";
+import EjectionTextGenerator from "./EjectionTextGenerator.js";
 let btn = document.getElementById("start-button");
 btn.addEventListener("click", () => {
     main(btn.innerText);
@@ -42,4 +42,4 @@ function main(color) {
         }, 1000 / 30);
     });
 }
-//# sourceMappingURL=main.js.map
+//# sourceMappingURL=Main.js.map

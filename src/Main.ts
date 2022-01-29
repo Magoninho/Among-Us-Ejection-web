@@ -1,7 +1,7 @@
-import Astronaut from "./astronauts.js";
+import Astronaut from "./Astronaut.js";
 import ImageUtils from "./ImageUtils.js";
-import Stars from "./stars.js";
-import EjectionTextGenerator from "./ejectionTextGenerator.js";
+import Stars from "./Stars.js";
+import EjectionTextGenerator from "./EjectionTextGenerator.js";
 
 let btn = document.getElementById("start-button");
 btn.addEventListener("click", () => {
